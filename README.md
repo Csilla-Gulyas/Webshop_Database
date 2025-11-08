@@ -13,10 +13,10 @@ Az adatbázis biztosítja:
 ---
 
 ## Felhasznált technológiák
-- **Adatbázis-kezelő: MySQL  
-- **Fejlesztői eszköz: DBeaver  
-- **Diagram készítés: PlantUML  
-- **Szkript nyelv: SQL  
+- **Adatbázis-kezelő:** MySQL  
+- **Fejlesztői eszköz:** DBeaver  
+- **Diagram készítés:** PlantUML  
+- **Szkript nyelv:** SQL  
 
 ---
 
