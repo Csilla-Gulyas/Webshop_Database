@@ -54,7 +54,10 @@ CREATE TABLE IF NOT EXISTS suppliers_contacts (
     supplier_contact_id INT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     phone VARCHAR(20) NOT NULL,
-    email VARCHAR(50) NOT NULL
+    email VARCHAR(50) NOT NULL,
+    FOREIGN KEY (supplier_contact_id) REFERENCES suppliers(supplier_id)
+    	ON UPDATE CASCADE
+        ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 -- =========================================
