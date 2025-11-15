@@ -67,22 +67,26 @@ skinparam entity {
   FontSize 12
 }
 
+' ==========================
+' ENTITIES
+' ==========================
+
 entity "categories" as categories {
-  *category_id : INT <<PK>>
+  *category_id : INT
   name : VARCHAR
 }
 
 entity "products" as products {
-  *product_id : INT <<PK>>
+  *product_id : INT
   name : VARCHAR
   price : DECIMAL
   quantity : INT
   description : TEXT
-  category_id : INT <<FK>>
+  category_id : INT
 }
 
 entity "users" as users {
-  *user_id : INT <<PK>>
+  *user_id : INT
   username : VARCHAR
   password : VARCHAR
   first_name : VARCHAR
@@ -92,58 +96,57 @@ entity "users" as users {
 }
 
 entity "cart_items" as cart_items {
-  *cart_item_id : INT <<PK>>
+  *cart_item_id : INT
   quantity : INT
-  product_id : INT <<FK>>
-  user_id : INT <<FK>>
+  product_id : INT
+  user_id : INT
 }
 
 entity "suppliers" as suppliers {
-  *supplier_id : INT <<PK>>
+  *supplier_id : INT
   name : VARCHAR
   method : VARCHAR
 }
 
 entity "suppliers_contacts" as suppliers_contacts {
-  *supplier_contact_id : INT <<PK>>
+  *supplier_contact_id : INT
   name : VARCHAR
   phone : VARCHAR
   email : VARCHAR
 }
 
 entity "product_supplier" as product_supplier {
-  *product_id : INT <<FK>>
-  *supplier_id : INT <<FK>>
+  *product_id : INT
+  *supplier_id : INT
 }
 
 entity "payments" as payments {
-  *payment_id : INT <<PK>>
+  *payment_id : INT
   status : VARCHAR
   transaction_fee : DECIMAL
   method : VARCHAR
 }
 
 entity "orders" as orders {
-  *order_id : INT <<PK>>
+  *order_id : INT
   status : VARCHAR
   order_date : DATE
   shipping_time : INT
-  user_id : INT <<FK>>
-  payment_id : INT <<FK>>
-  supplier_id : INT <<FK>>
+  user_id : INT
+  payment_id : INT
+  supplier_id : INT
 }
 
 entity "order_items" as order_items {
-  *order_item_id : INT <<PK>>
+  *order_item_id : INT
   quantity : INT
   price : DECIMAL
-  order_id : INT <<FK>>
-  product_id : INT <<FK>>
+  order_id : INT
+  product_id : INT
 }
 
-
 ' ==========================
-' RELATIONSHIPS with cardinalities
+' RELATIONSHIPS
 ' ==========================
 
 categories ||--o{ products : "1:N"
@@ -151,7 +154,7 @@ categories ||--o{ products : "1:N"
 products ||--o{ cart_items : "1:N"
 users ||--o{ cart_items : "1:N"
 
-products }o--o{ suppliers : "N:M\n(via product_supplier)"
+products }o--o{ suppliers : "N:M via product_supplier"
 product_supplier }o--|| products
 product_supplier }o--|| suppliers
 
